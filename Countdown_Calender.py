@@ -21,12 +21,26 @@ class CountdownCalender:
         self.window.title('CountDown Calender')
         self.window.geometry('400x300')
         self.window.resizable(width=False, height=False)
-
+        self.window['bg'] = '#FFAECE'
         # Create widgets
+        # Frame
+        main_frame = tk.LabelFrame(master=self.window, text='Events')
+        main_frame['bg'] = '#EFE4B0'
+        main_frame.pack(fill=tk.BOTH, padx=10, pady=10)
         # Combobox
-        cmb_event = ttk.Combobox
+        event_titles = ['A', 'B', 'C', 'D']
+        cmb_current_selection = tk.StringVar()
+        cmb_current_selection.set('SELECT')
+        cmb_event = ttk.Combobox(master=main_frame, values=event_titles, state='readonly', )
 
-        # Add the widgets
+        #Labels
+        lbl_date = tk.Label(master=main_frame,text='Date : ')
+        lbl_days_to_go = tk.Label(master=main_frame, text='Days to go: ')
+        lbl_to_do = tk.Label(master=main_frame, text='To Do: ')
+
+
+        # Add the widgets to main frame
+        cmb_event.grid(row=0, column=0)
 
         # Event Procedure
 
